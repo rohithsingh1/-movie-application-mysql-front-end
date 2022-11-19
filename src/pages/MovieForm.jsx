@@ -39,11 +39,15 @@ function MovieForm() {
       console.log("temp = ", temp);
       const movieDetails = { ...movie, CastList: temp };
       console.log("movieDetaisl = ", movieDetails);
-      const response = await axios.post("api/movies/add-movie", movieDetails, {
-        headers: {
-          Authorization: `Bearer ${localStorage.getItem("token")}`,
-        },
-      });
+      const response = await axios.post(
+        `${process.env.NODE_SERVER || ""}/api/movies/add-movie`,
+        movieDetails,
+        {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem("token")}`,
+          },
+        }
+      );
       dispatch(HideLoading());
       if (response.data.success) {
         toast.success(response.data.message);
@@ -71,7 +75,7 @@ function MovieForm() {
       const movieDetails = { ...movie, CastList: temp };
       console.log("movieDetaisl = ", movieDetails);
       const response = await axios.post(
-        "api/movies/update-movie",
+        `${process.env.NODE_SERVER || ""}/api/movies/update-movie`,
         movieDetails,
         {
           headers: {

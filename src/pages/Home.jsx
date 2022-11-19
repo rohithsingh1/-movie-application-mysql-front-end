@@ -17,7 +17,7 @@ function Home() {
     try {
       //dispatch(ShowLoading());
       const response = await axios.post(
-        "/api/movies/show-movies",
+        `${process.env.NODE_SERVER || ""}/api/movies/show-movies`,
         {},
         {
           headers: {
@@ -44,11 +44,15 @@ function Home() {
         MovieName,
       };
       //dispatch(ShowLoading());
-      const response = await axios.post("api/movies/delete-movie", obj, {
-        headers: {
-          Authorization: `Bearer ${localStorage.getItem("token")}`,
-        },
-      });
+      const response = await axios.post(
+        `${process.env.NODE_SERVER || ""}/api/movies/delete-movie`,
+        obj,
+        {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem("token")}`,
+          },
+        }
+      );
       //dispatch(HideLoading());
       if (response.data.success) {
         toast.success(response.data.message);
