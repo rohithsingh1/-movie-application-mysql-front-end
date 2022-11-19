@@ -40,7 +40,7 @@ function MovieForm() {
       const movieDetails = { ...movie, CastList: temp };
       console.log("movieDetaisl = ", movieDetails);
       const response = await axios.post(
-        `${process.env.NODE_SERVER || ""}/api/movies/add-movie`,
+        `https://movie-application-mysql.onrender.com/api/movies/add-movie`,
         movieDetails,
         {
           headers: {
@@ -75,7 +75,7 @@ function MovieForm() {
       const movieDetails = { ...movie, CastList: temp };
       console.log("movieDetaisl = ", movieDetails);
       const response = await axios.post(
-        `${process.env.NODE_SERVER || ""}/api/movies/update-movie`,
+        `https://movie-application-mysql.onrender.com/api/movies/update-movie`,
         movieDetails,
         {
           headers: {

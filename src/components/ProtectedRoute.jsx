@@ -16,7 +16,7 @@ function ProtectedRoute({ children }) {
     try {
       //dispatch(ShowLoading());
       const response = await axios.post(
-        `${process.env.NODE_SERVER || ""}/api/users/get-user-by-id`,
+        `https://movie-application-mysql.onrender.com/api/users/get-user-by-id`,
         {},
         {
           headers: {

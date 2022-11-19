@@ -24,7 +24,7 @@ function Register() {
       } else {
         dispatch(ShowLoading());
         const response = await axios.post(
-          `${process.env.NODE_SERVER || ""}/api/users/register`,
+          `https://movie-application-mysql.onrender.com/api/users/register`,
           user
         );
         dispatch(HideLoading());

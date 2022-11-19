@@ -17,7 +17,7 @@ function Home() {
     try {
       //dispatch(ShowLoading());
       const response = await axios.post(
-        `${process.env.NODE_SERVER || ""}/api/movies/show-movies`,
+        `https://movie-application-mysql.onrender.com/api/movies/show-movies`,
         {},
         {
           headers: {
@@ -45,7 +45,7 @@ function Home() {
       };
       //dispatch(ShowLoading());
       const response = await axios.post(
-        `${process.env.NODE_SERVER || ""}/api/movies/delete-movie`,
+        `https://movie-application-mysql.onrender.com/api/movies/delete-movie`,
         obj,
         {
           headers: {

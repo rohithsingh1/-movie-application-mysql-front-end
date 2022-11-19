@@ -20,7 +20,7 @@ function Login() {
     try {
       dispatch(ShowLoading());
       const response = await axios.post(
-        `${process.env.NODE_SERVER || ''}/api/users/login`,
+        `https://movie-application-mysql.onrender.com/api/users/login`,
         user
       );
       dispatch(HideLoading());
